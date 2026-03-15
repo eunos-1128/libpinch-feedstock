@@ -20,3 +20,5 @@ cmake --build build --parallel ${CPU_COUNT}
 
 ctest -V --test-dir build
 cmake --install build
+
+install -m 644 include/pinch/asio.hpp ${PREFIX}/include/pinch/asio.hpp

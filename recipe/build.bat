@@ -17,3 +17,6 @@ if errorlevel 1 exit 1
 
 cmake --install build
 if errorlevel 1 exit 1
+
+copy include\pinch\asio.hpp %LIBRARY_PREFIX%\include\pinch\asio.hpp
+if errorlevel 1 exit 1
