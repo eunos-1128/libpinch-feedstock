@@ -1,40 +1,34 @@
 context:
   name: libpinch
-  version: "1.2.1"
-  author: "mhekkel"
+  version: "1.3.0"
 
 package:
   name: ${{ name }}
   version: ${{ version }}
 
 source:
-  url: https://github.com/${{ author }}/${{ name }}/archive/refs/tags/v${{ version }}.tar.gz
-  sha256: fc2515ab160be10375bd08760b3940caaa408b60c190752331780f9f36f413f4
+  url: https://forge.hekkelman.net/maarten/${{ name }}/archive/v${{ version }}.tar.gz
+  sha256: 67f6893894c020dfdc242a6ca38e8c6384fc518fdbbfcf248a5aea6ce485d39c
   patches:
-    # Refer to https://github.com/mhekkel/libpinch/pull/1
-    - fix-include-target_sources.patch
     # Remove the header include since cryptopp/factory.h is not included in conda-forge's cryptopp
     # Upstream code includes the header but does not use it
     - remove-include-factory-header.patch
 
 build:
-  number: 2
+  number: 0
 
 requirements:
   build:
     - ${{ compiler("cxx") }}
     - ${{ stdlib("c") }}
+    - ${{ "make" if unix }}
+    - ${{ "jom" if win }}
     - cmake
     - pkg-config
-    - if: unix
-      then:
-        - make
-    - if: win
-      then:
-        - jom
   host:
     - asio
     - cryptopp
+    - libmcfp
     - zlib
   run_exports:
     - ${{ pin_subpackage(name, upper_bound="x.x.x") }}
@@ -48,8 +42,8 @@ tests:
         - pinch
 
 about:
-  homepage: https://github.com/mhekkel/libpinch
-  repository: https://github.com/mhekkel/libpinch
+  homepage: https://forge.hekkelman.net/maarten/libpinch
+  repository: https://forge.hekkelman.net/maarten/libpinch
   license: BSL-1.0
   license_file: LICENSE_1_0.txt
   summary: "Library for asynchronous SSH"

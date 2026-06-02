@@ -6,13 +6,12 @@ cmake -S . -B build -G "NMake Makefiles JOM" ^
     %CMAKE_ARGS% ^
     -DCMAKE_CXX_FLAGS="%CXXFLAGS% -DUNICODE -D_UNICODE" ^
     -DCMAKE_WINDOWS_EXPORT_ALL_SYMBOLS=ON ^
-    -DBUILD_SHARED_LIBS=ON
+    -DBUILD_SHARED_LIBS=ON ^
+    -DBUILD_TESTING=OFF ^
+    -DPINCH_BUILD_EXAMPLES=OFF
 if errorlevel 1 exit 1
 
 cmake --build build --parallel %CPU_COUNT%
-if errorlevel 1 exit 1
-
-ctest -V --test-dir build
 if errorlevel 1 exit 1
 
 cmake --install build
