@@ -3,13 +3,13 @@ About libpinch-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/libpinch-feedstock/blob/main/LICENSE.txt)
 
-Home: https://github.com/mhekkel/libpinch
+Home: https://forge.hekkelman.net/maarten/libpinch
 
 Package license: BSL-1.0
 
 Summary: Library for asynchronous SSH
 
-Development: https://github.com/mhekkel/libpinch
+Development: https://forge.hekkelman.net/maarten/libpinch
 
 This library provides asynchronous SSH for use in client applications.
 
