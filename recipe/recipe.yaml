@@ -1,6 +1,6 @@
 context:
   name: libpinch
-  version: "1.3.0"
+  version: "1.4.0"
 
 package:
   name: ${{ name }}
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://forge.hekkelman.net/maarten/${{ name }}/archive/v${{ version }}.tar.gz
-  sha256: 67f6893894c020dfdc242a6ca38e8c6384fc518fdbbfcf248a5aea6ce485d39c
+  sha256: d532602c0dd496716f3e23827e64b8fbbea31a54772ec1e1b25fd494d275deda
   patches:
     # Remove the header include since cryptopp/factory.h is not included in conda-forge's cryptopp
     # Upstream code includes the header but does not use it
