@@ -29,6 +29,7 @@ requirements:
   host:
     - asio
     - cryptopp
+    - libmcfp
     - zlib
   run_exports:
     - ${{ pin_subpackage(name, upper_bound="x.x.x") }}
