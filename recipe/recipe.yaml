@@ -11,8 +11,6 @@ source:
   url: https://forge.hekkelman.net/maarten/${{ name }}/archive/v${{ version }}.tar.gz
   sha256: 67f6893894c020dfdc242a6ca38e8c6384fc518fdbbfcf248a5aea6ce485d39c
   patches:
-    # Refer to https://github.com/mhekkel/libpinch/pull/1
-    - fix-include-target_sources.patch
     # Remove the header include since cryptopp/factory.h is not included in conda-forge's cryptopp
     # Upstream code includes the header but does not use it
     - remove-include-factory-header.patch
